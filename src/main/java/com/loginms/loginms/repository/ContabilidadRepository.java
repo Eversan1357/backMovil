@@ -16,7 +16,7 @@ import java.util.List;
 public interface ContabilidadRepository extends JpaRepository<ContabilidadEntity, Long> {
 
     @Query(value = """
-        SELECT SUM(VALOR) AS TOTAL FROM CONTABILIDAD C\s
+        SELECT SUM(VALOR) AS TOTAL FROM CONTABILIDAD C
         INNER JOIN USUARIO U ON U.ID_USUARIO = C.ID_USUARIO
         WHERE U.USUARIO = :usuario
         AND C.TIPO = (SELECT T.ID_TIPO FROM TIPO T WHERE T.TIPO = 'GASTO')
@@ -24,7 +24,7 @@ public interface ContabilidadRepository extends JpaRepository<ContabilidadEntity
     Long gastosDeUsuario(@Param("usuario") String usuario) throws ConverterNotFoundException;
 
     @Query(value = """
-            SELECT SUM(VALOR) AS TOTAL FROM CONTABILIDAD C\s
+            SELECT SUM(VALOR) AS TOTAL FROM CONTABILIDAD C
             INNER JOIN USUARIO U ON U.ID_USUARIO = C.ID_USUARIO
             WHERE U.USUARIO = :usuario
             AND C.TIPO = (SELECT T.ID_TIPO FROM TIPO T WHERE T.TIPO = 'INGRESO')

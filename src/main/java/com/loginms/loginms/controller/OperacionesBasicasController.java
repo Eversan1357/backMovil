@@ -68,4 +68,14 @@ public class OperacionesBasicasController {
         return operacionesBasicasService.paginadoIngresos(usuario, pagina, cantidad);
     }
 
+    /**
+     * Total disponible del usuario
+     * @return
+     * @throws NullPointerException
+     */
+    @GetMapping(value = Constantes.Urls.PATH_OPER_BASICAS_DISPO_USUARIO)
+    public Long disponible(@PathVariable("usuario") String usuario) throws NullPointerException{
+        return operacionesBasicasService.disponible(usuario);
+    }
+
 }

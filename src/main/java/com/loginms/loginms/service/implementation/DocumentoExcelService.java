@@ -37,11 +37,11 @@ public class DocumentoExcelService implements IDocumentoExcelService {
 
         List<Long> tipo = new ArrayList<>();
 
-        if (contabilidadConsultInDTO.getTipo().equals("INGRESO")){
+        if (contabilidadConsultInDTO.getTipo().equals("INGRESO")) {
             tipo.add(1L);
-        }else if (contabilidadConsultInDTO.getTipo().equals("GASTO")){
+        } else if (contabilidadConsultInDTO.getTipo().equals("GASTO")) {
             tipo.add(2L);
-        }else{
+        } else {
             tipo.add(1L);
             tipo.add(2L);
         }
@@ -103,4 +103,35 @@ public class DocumentoExcelService implements IDocumentoExcelService {
 
     }
 
+    @Override
+    public List<Map<String, ContabilidadConsultDTO>>
+    repoteDatos(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException {
+
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date fechaI = formatoFecha.parse(contabilidadConsultInDTO.getFechaI() + " 00:00:00");
+        Date fechaF = formatoFecha.parse(contabilidadConsultInDTO.getFechaF() + " 23:59:59");
+
+        List<Long> tipo = new ArrayList<>();
+
+        if (contabilidadConsultInDTO.getTipo().equals("INGRESO")) {
+            tipo.add(1L);
+        } else if (contabilidadConsultInDTO.getTipo().equals("GASTO")) {
+            tipo.add(2L);
+        } else {
+            tipo.add(1L);
+            tipo.add(2L);
+        }
+
+        List<Map<String, ContabilidadConsultDTO>> listContabilidad =
+                contabilidadRepository.listContabilidad(
+                        contabilidadConsultInDTO.getUsuario(),
+                        fechaI,
+                        fechaF,
+                        tipo
+                );
+
+        return listContabilidad;
+
+    }
 }

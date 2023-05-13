@@ -19,6 +19,10 @@ public class Constantes {
          */
         public final static String PATH_DESCRIP = "descripcion";
         /**
+         * Coonstante PATH_EXCEL
+         */
+        public final static String PATH_EXCEL = "excel";
+        /**
          * Coonstante PATH_DESCRIP_ID
          */
         public final static String PATH_DESCRIP_ID = "{id}";

@@ -25,7 +25,7 @@ public class DocumentoExcelController {
         return iDocumentoExcelService.repote(contabilidadConsultInDTO);
     }
     @PostMapping("/datos")
-    public List<Map<String, ContabilidadConsultDTO>>
+    public List<ContabilidadConsultDTO>
     repoteDatos(@RequestBody ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException{
         return iDocumentoExcelService.repoteDatos(contabilidadConsultInDTO);
     }

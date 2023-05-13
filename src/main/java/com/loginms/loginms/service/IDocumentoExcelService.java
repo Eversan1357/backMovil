@@ -18,6 +18,6 @@ public interface IDocumentoExcelService {
      */
     DocumentoBse64DTO repote(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException;
 
-    List<Map<String, ContabilidadConsultDTO>>
+    List<ContabilidadConsultDTO>
     repoteDatos(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException;
 }

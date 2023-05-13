@@ -101,7 +101,7 @@ INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Transporte', 2, 1)
 INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Pago', 1, 1);
 INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Comida', 2, 1);
 INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Salud', 2, 1);
-INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Ropa', 2, 1);
+INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Compras', 2, 1);
 INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Gym', 2, 1);
 INSERT INTO categoria (categoria, id_tipo, id_imagen) VALUES('Servicios', 2, 1);
 

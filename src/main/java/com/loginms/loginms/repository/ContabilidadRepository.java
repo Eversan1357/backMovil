@@ -118,4 +118,32 @@ public interface ContabilidadRepository extends JpaRepository<ContabilidadEntity
             @Param("fechaF") Date fechaF,
             @Param("tipo") List<Long> tipo);
 
+    @Query(value = """
+               SELECT
+               C.TIPO AS TIPO,
+               C.FECHA AS FECHA,
+               D.DESCRIPCION AS DESCRIPCION,
+               C.VALOR AS VALOR,
+               CA.CATEGORIA AS CATEGORIA
+               FROM CONTABILIDAD C
+               INNER JOIN USUARIO U ON
+               	U.ID_USUARIO = C.ID_USUARIO
+               INNER JOIN CATEGORIA CA ON
+               	CA.ID_CATEGORIA = C.ID_CATEGORIA
+               INNER JOIN DESCRIPCION D ON
+                D.ID_DESCRIPCION = C.ID_DESCRIPCION
+                WHERE U.USUARIO = :usuario
+                AND
+                C.FECHA >= :fechaI
+                AND
+                C.FECHA <= :fechaF
+                AND
+                C.TIPO IN (:tipo)
+                """, nativeQuery = true)
+    List<ContabilidadConsultDTO> listContabilidad2(
+            @Param("usuario") String usuario,
+            @Param("fechaI") Date fechaI,
+            @Param("fechaF") Date fechaF,
+            @Param("tipo") List<Long> tipo);
+
 }

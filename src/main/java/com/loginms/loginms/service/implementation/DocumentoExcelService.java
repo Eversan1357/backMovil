@@ -104,7 +104,7 @@ public class DocumentoExcelService implements IDocumentoExcelService {
     }
 
     @Override
-    public List<Map<String, ContabilidadConsultDTO>>
+    public List<ContabilidadConsultDTO>
     repoteDatos(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException {
 
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -123,8 +123,8 @@ public class DocumentoExcelService implements IDocumentoExcelService {
             tipo.add(2L);
         }
 
-        List<Map<String, ContabilidadConsultDTO>> listContabilidad =
-                contabilidadRepository.listContabilidad(
+        List<ContabilidadConsultDTO> listContabilidad =
+                contabilidadRepository.listContabilidad2(
                         contabilidadConsultInDTO.getUsuario(),
                         fechaI,
                         fechaF,

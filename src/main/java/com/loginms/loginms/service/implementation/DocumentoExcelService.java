@@ -19,10 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -38,12 +35,23 @@ public class DocumentoExcelService implements IDocumentoExcelService {
         Date fechaI = formatoFecha.parse(contabilidadConsultInDTO.getFechaI() + " 00:00:00");
         Date fechaF = formatoFecha.parse(contabilidadConsultInDTO.getFechaF() + " 23:59:59");
 
+        List<Long> tipo = new ArrayList<>();
+
+        if (contabilidadConsultInDTO.getTipo().equals("INGRESO")){
+            tipo.add(1L);
+        }else if (contabilidadConsultInDTO.getTipo().equals("GASTO")){
+            tipo.add(2L);
+        }else{
+            tipo.add(1L);
+            tipo.add(2L);
+        }
+
         List<Map<String, ContabilidadConsultDTO>> listContabilidad =
                 contabilidadRepository.listContabilidad(
                         contabilidadConsultInDTO.getUsuario(),
                         fechaI,
                         fechaF,
-                        contabilidadConsultInDTO.getTipo()
+                        tipo
                 );
 
         // Crear el libro de trabajo de Excel

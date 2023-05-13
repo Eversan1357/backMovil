@@ -91,6 +91,8 @@ public class DocumentoExcelService implements IDocumentoExcelService {
             String contraEncrip = Base64.getEncoder().encodeToString(fileContent);
             Files.delete(path);
 
+            System.out.println(contraEncrip);
+
             return new DocumentoBse64DTO(contraEncrip);
 
         } catch (IOException e) {

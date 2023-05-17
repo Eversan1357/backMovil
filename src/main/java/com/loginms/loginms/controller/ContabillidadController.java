@@ -68,7 +68,7 @@ public class ContabillidadController {
      * @param idCategoria Id de la categoria
      * @return Long
      */
-    @GetMapping(path = Constantes.Urls.PATH_CATEGORIA_ID)
+    @GetMapping(path = Constantes.Urls.PATH_CATEGORIA_ID_CATE)
     public Long totalGastoByCategoria(@PathVariable("idCategoria") Long idCategoria){
         return contabillidadService.totalGastoByCategoria(idCategoria);
     }

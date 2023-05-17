@@ -146,4 +146,13 @@ public interface ContabilidadRepository extends JpaRepository<ContabilidadEntity
             @Param("fechaF") Date fechaF,
             @Param("tipo") List<Long> tipo);
 
+    @Query(value = """
+    SELECT SUM(VALOR)
+    FROM CONTABILIDAD
+    WHERE TIPO = 2
+    AND
+    ID_CATEGORIA = :idCategoria
+    """, nativeQuery = true)
+    Long totalGastoByCategoria(@Param("idCategoria") Long idCategoria);
+
 }

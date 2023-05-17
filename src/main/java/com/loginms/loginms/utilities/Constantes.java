@@ -78,6 +78,10 @@ public class Constantes {
          * Coonstante PATH_LOGIN
          */
         public final static String PATH_LOGIN = "login";
+        /**
+         * Coonstante PATH_CATEGORIA_ID
+         */
+        public final static String PATH_CATEGORIA_ID_CATE = "total-gastos/{idCategoria}";
 
         private Urls() {
         }

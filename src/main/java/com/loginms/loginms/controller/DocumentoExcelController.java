@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin("*")
@@ -20,13 +19,28 @@ public class DocumentoExcelController {
     @Autowired
     IDocumentoExcelService iDocumentoExcelService;
 
+    /**
+     * repote
+     *
+     * @param contabilidadConsultInDTO Parametro de entrada
+     * @return DocumentoBse64DTO
+     * @throws ParseException Error
+     */
     @PostMapping
     public DocumentoBse64DTO repote(@RequestBody ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException {
         return iDocumentoExcelService.repote(contabilidadConsultInDTO);
     }
+
+    /**
+     * repoteDatos
+     *
+     * @param contabilidadConsultInDTO Parametro de entrada
+     * @return List<ContabilidadConsultDTO>
+     * @throws ParseException Error
+     */
     @PostMapping("/datos")
     public List<ContabilidadConsultDTO>
-    repoteDatos(@RequestBody ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException{
+    repoteDatos(@RequestBody ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException {
         return iDocumentoExcelService.repoteDatos(contabilidadConsultInDTO);
     }
 

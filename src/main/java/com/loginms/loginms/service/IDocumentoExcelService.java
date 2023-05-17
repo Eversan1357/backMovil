@@ -6,18 +6,25 @@ import com.loginms.loginms.dto.DocumentoBse64DTO;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.Map;
 
 public interface IDocumentoExcelService {
 
     /**
-     * Reporte
+     * repote
      *
      * @param contabilidadConsultInDTO Parametro de entrada
-     * @return
+     * @return DocumentoBse64DTO
+     * @throws ParseException Error
      */
     DocumentoBse64DTO repote(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException;
 
-    List<ContabilidadConsultDTO>
-    repoteDatos(ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException;
+
+    /**
+     * repoteDatos
+     * @param contabilidadConsultInDTO Parametro de entrada
+     * @return List<ContabilidadConsultDTO>
+     * @throws ParseException Error
+     */
+    List<ContabilidadConsultDTO> repoteDatos(
+            ContabilidadConsultInDTO contabilidadConsultInDTO) throws ParseException;
 }

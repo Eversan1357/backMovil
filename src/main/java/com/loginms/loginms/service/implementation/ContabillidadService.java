@@ -53,6 +53,7 @@ public class ContabillidadService implements IContabillidadService {
 
     @Override
     public void actualizarContabillidad(Long idContabilidad, ContabilidadDTO contabilidadDTO) throws NullPointerException {
+        
         if (idContabilidad == null || idContabilidad.equals(" ") || Objects.isNull(contabilidadDTO)) {
             throw new NullPointerException("Los parametros de entrada no pueden ser nulo");
         }
